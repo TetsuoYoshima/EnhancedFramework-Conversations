@@ -112,7 +112,7 @@ namespace EnhancedFramework.Conversations.Editor {
             speakerColorGUI.image = EditorGUIUtility.IconContent("Custom").image;
 
             addSpeakerColorGUI.image = EditorGUIUtility.IconContent("CreateAddNew").image;
-            removeSpeakerColorGUI.image = EditorGUIUtility.IconContent("winbtn_win_close").image;
+            removeSpeakerColorGUI.image = EditorGUIUtility.IconContent("close_button").image;
 
             isActive = true;
             RefreshConversation();
@@ -517,7 +517,7 @@ namespace EnhancedFramework.Conversations.Editor {
             int _nodeIndex = _index++;
 
             if (_isSelected || useGrid) {
-                EnhancedEditorGUI.BackgroundLine(_full, _isSelected, _nodeIndex);
+                EnhancedEditorGUI.BackgroundLine(_full, _nodeIndex, _isSelected);
             }
 
             // Pre-draw callback.
@@ -527,7 +527,7 @@ namespace EnhancedFramework.Conversations.Editor {
             if (_node.ShowNodes && (_node.nodes.Length > 0)) {
 
                 _dotHSpacing = DotFoldoutSpacing;
-                _dotVpacing = DotFoldoutSpacing + 1f;
+                _dotVpacing  = DotFoldoutSpacing + 1f;
 
                 _node.foldout.target = EditorGUI.Foldout(_position, _node.foldout.target, GUIContent.none);
 
@@ -617,7 +617,7 @@ namespace EnhancedFramework.Conversations.Editor {
 
                 EditorGUI.DrawRect(_temp, EnhancedEditorGUIUtility.GUIThemeBackgroundColor);
                 if (_isSelected || useGrid) {
-                    EnhancedEditorGUI.BackgroundLine(_temp, _isSelected, _nodeIndex);
+                    EnhancedEditorGUI.BackgroundLine(_temp, _nodeIndex, _isSelected);
                 }
 
                 EditorGUI.LabelField(_temp, ElapsedLabelSymbol, _style);
